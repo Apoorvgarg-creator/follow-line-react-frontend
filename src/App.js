@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import ProminentAppBar from "./components/nav-bar";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import React from "react";
+import ACE_EDITOR from "./components/aceEditor";
+
+
+const theme = createTheme({
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#ffac15',
+    },
+    secondary: {
+      main: '#147aff',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <ProminentAppBar/>
+            <ACE_EDITOR/>
+        </div>
+      </ThemeProvider>
   );
 }
 
